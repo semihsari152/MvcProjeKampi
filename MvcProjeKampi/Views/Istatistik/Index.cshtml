@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="card-group" style="text-align:center">
+    <div class="card text-white bg-primary mr-3" style="max-width: 18rem;">
+        <div class="card-header">Toplam Kategori Sayısı</div>
+        <div class="card-body" >
+            <h5 class="card-title">@ViewBag.deger</h5>
+        </div>
+    </div>
+
+    <div class="card text-white bg-secondary mr-3" style="max-width: 18rem;">
+        <div class="card-header">Yazılım kategorisine ait başlık sayısı</div>
+        <div class="card-body">
+            <h5 class="card-title">@ViewBag.deger1</h5>
+        </div>
+    </div>
+
+    <div class="card text-white bg-success mr-3" style="max-width: 18rem;">
+        <div class="card-header">"A" harfi geçen yazar sayısı</div>
+        <div class="card-body">
+            <h5 class="card-title">@ViewBag.deger3</h5>
+        </div>
+    </div>
+
+    <div class="card text-white bg-danger mr-3" style="max-width: 18rem;">
+        <div class="card-header">En fazla başlığa sahip kategori adı</div>
+        <div class="card-body">
+            <h5 class="card-title">@ViewBag.deger4</h5>
+        </div>
+    </div>
+
+    <div class="card text-white bg-warning mr-3" style="max-width: 18rem;">
+        <div class="card-header">True - False arasındaki fark</div>
+        <div class="card-body">
+            <h5 class="card-title">@ViewBag.deger5</h5>
+        </div>
+    </div>
+    </div>
+
