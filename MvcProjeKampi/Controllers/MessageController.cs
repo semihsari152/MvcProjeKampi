@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -18,16 +19,17 @@ namespace MvcProjeKampi.Controllers
 
         MessageValidator messagevalidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        [Authorize]
+        public ActionResult Inbox(string p)
         {
-            var messagevalues = mm.GetListInbox();
+            var messagevalues = mm.GetListInbox(p);
 
             return View(messagevalues);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messagevalues = mm.GetListSendbox();
+            var messagevalues = mm.GetListSendbox(p);
 
             return View(messagevalues);
         }
@@ -49,7 +51,7 @@ namespace MvcProjeKampi.Controllers
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
                 mm.MessageAdd(p);
-                return RedirectToAction("Index");
+                return RedirectToAction("Sendbox");
             }
             else
             {

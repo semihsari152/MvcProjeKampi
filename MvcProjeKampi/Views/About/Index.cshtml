@@ -15,14 +15,16 @@
         <th>Hakkımda Başlığı</th>
         <th>Aktif Yap</th>
         <th>Pasif Yap</th>
+        <th>Durum</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.AboutID</td>
-            <td>Başlık</td>
-            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+            <td>Başlık @item.AboutID</td>
+            <td><a href="/About/AboutActive/@item.AboutID" class="btn btn-warning">Aktif Yap</a></td>
+            <td><a href="/About/AboutPassive/@item.AboutID" class="btn btn-danger">Pasif Yap</a></td>
+            <td>@item.AboutStatus</td>
         </tr>
     }
 

@@ -22,6 +22,16 @@ namespace MvcProjeKampi.Controllers
             return View(headingvalues);
         }
 
+
+        public ActionResult HeadingReport()
+        {
+            var headingvalues = hm.GetList();
+            return View(headingvalues);
+        }
+
+
+
+
         [HttpGet]
         public ActionResult AddHeading()//dropdown yapcaz c#'daki adı combobox obilette şehir seçerken çıkan tablo
         {
@@ -88,11 +98,18 @@ namespace MvcProjeKampi.Controllers
         }
        
 
-        public ActionResult DeleteHeading(int id)
+        public ActionResult ChangeStatHeading(int id)
         {
             var headingvalue = hm.GetById(id);
 
-            headingvalue.HeadingStatus = false;
+            if (headingvalue.HeadingStatus == false)
+            {
+                headingvalue.HeadingStatus = true;
+            }
+            else
+            {
+                headingvalue.HeadingStatus = false;
+            }
 
             hm.HeadingDelete(headingvalue);
 
